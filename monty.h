@@ -87,8 +87,8 @@ char *read_word(char *str, int *offset);
 
 /* Executor */
 
-instruction_t *get_opcode_handlers(void);
-void execute_line(char *line, int line_num, stack_t **stack_values);
+instruction_t *get_opcodes(void);
+void run_line(char *line, int line_num, stack_t **stack);
 
 /* Stack helpers */
 
