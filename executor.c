@@ -18,13 +18,6 @@ instruction_t *get_opcode_handlers(void)
 		{"sub", mty_op_sub},
 		{"div", mty_op_div},
 		{"mul", mty_op_mul},
-		{"mod", mty_op_mod},
-		{"pchar", mty_op_pchar},
-		{"pstr", mty_op_pstr},
-		{"rotl", mty_op_rotl},
-		{"rotr", mty_op_rotr},
-		{"stack", mty_op_stack},
-		{"queue", mty_op_queue},
 		{NULL, 0},
 	};
 	return (handlers);
