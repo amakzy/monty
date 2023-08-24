@@ -33,7 +33,7 @@ void run_line(char *line, int line_num, stack_t **stack)
 {
 	instruction_t *opcodes = get_opcodes();
 	int i = 0;
-	char *op = get_word(line, &i);
+	char *op = read_word(line, &i);
 
 if(op) {
     if(op[0] != '#') {
