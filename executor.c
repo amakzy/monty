@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
- * get_opcode_handlers - Retrieves an array of supported instructions
+ * get_opcodes - Retrieves an array of supported instructions
  *
  * Return: An array of instructions supported by this program
  */
-instruction_t *get_opcode_handlers(void)
+instruction_t *get_opcodes(void)
 {
 	static instruction_t handlers[] = {
 		{"push", mty_op_push},
@@ -20,7 +20,7 @@ instruction_t *get_opcode_handlers(void)
 		{"mul", mty_op_mul},
 		{NULL, 0},
 	};
-	return (handlers);
+	return (opcodes);
 }
 
 /**
@@ -29,27 +29,24 @@ instruction_t *get_opcode_handlers(void)
  * @line_num: The line number of the line being executed
  * @stack_values: The stack of values of the program
  */
-void execute_line(char *line, int line_num, stack_t **stack_values)
+void run_line(char *line, int line_num, stack_t **stack)
 {
-	instruction_t *opcode_handlers = get_opcode_handlers();
-	int o = 0, i;
-	char *opcode = read_word(line, &o);
+	instruction_t *opcodes = get_opcodes();
+	int i = 0;
+	char *op = get_word(line, &i);
 
-	if (opcode != NULL)
-	{
-		if ((opcode[0] != '#') && (opcode[0] != '\0'))
-		{
-			for (i = 0; opcode_handlers[i].opcode != NULL; i++)
-			{
-				if (strcmp(opcode, opcode_handlers[i].opcode) == 0)
-				{
-					free(opcode), opcode_handlers[i].f(stack_values, line_num);
-					return;
-				}
-			}
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_num, opcode);
-			free(opcode), exit_program(EXIT_FAILURE);
-		}
-		free(opcode);
-	}
-}
+if(op) {
+    if(op[0] != '#') {
+      for(int j = 0; opcodes[j].name; j++) {
+        if(equals(op, opcodes[j].name)) {
+          opcodes[j].fn(stack, line_num);
+          return;
+        }
+      } 
+
+      print_error(line_num, op);
+      exit_failure();
+    }
+
+    free(op);
+  }
