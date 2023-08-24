@@ -12,7 +12,7 @@ void mty_op_push(stack_t **stack, unsigned int line_number)
 	char *line = get_lines()[line_number - 1];
 	char *opname = NULL, *arg = NULL, data_mode = DF_LIFO;
 	int o = 0, arg_int = 0;
-	
+
 	opname = read_word(line, &o);
 	arg = read_word(line, &o);
 	free(opname);
@@ -49,7 +49,7 @@ void mty_op_pall(stack_t **stack, unsigned int line_number)
 {
 	char data_mode = *get_data_mode();
 	stack_t *node = NULL;
-	
+
 	if (stack != NULL)
 	{
 		node = get_top_element(stack);
@@ -79,7 +79,7 @@ void mty_op_pint(stack_t **stack, unsigned int line_number)
 {
 	char error = TRUE;
 	stack_t *node = NULL;
-	
+
 	if (stack != NULL)
 	{
 		node = get_top_element(stack);
@@ -104,7 +104,7 @@ void mty_op_pint(stack_t **stack, unsigned int line_number)
 void mty_op_pop(stack_t **stack, unsigned int line_number)
 {
 	char data_mode = *get_data_mode();
-	
+
 	if ((stack != NULL) && (*stack != NULL))
 	{
 		if (data_mode == DF_FIFO)
@@ -133,7 +133,7 @@ void mty_op_swap(stack_t **stack, unsigned int line_number)
 	char data_mode = *get_data_mode(), error = TRUE;
 	stack_t *top0 = NULL, *top1 = NULL;
 	int tmp = 0;
-	
+
 	if (stack != NULL && (*stack != NULL))
 	{
 		top0 = get_top_element(stack);

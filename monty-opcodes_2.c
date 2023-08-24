@@ -10,7 +10,7 @@ void mty_op_add(stack_t **stack, unsigned int line_number)
 	char data_mode = *get_data_mode(), error = TRUE;
 	stack_t *top0 = NULL, *top1 = NULL;
 	int result = 0;
-	
+
 	if (stack != NULL && (*stack != NULL))
 	{
 		top0 = get_top_element(stack);
@@ -67,7 +67,7 @@ void mty_op_sub(stack_t **stack, unsigned int line_number)
 	char data_mode = *get_data_mode(), error = TRUE;
 	stack_t *top0 = NULL, *top1 = NULL;
 	int result = 0;
-	
+
 	if (stack != NULL && (*stack != NULL))
 	{
 		top0 = get_top_element(stack);
@@ -113,7 +113,7 @@ void mty_op_div(stack_t **stack, unsigned int line_number)
 	char data_mode = *get_data_mode(), error = TRUE;
 	stack_t *top0 = NULL, *top1 = NULL;
 	int result = 0;
-	
+
 	if (stack != NULL && (*stack != NULL))
 	{
 		top0 = get_top_element(stack);
@@ -160,7 +160,7 @@ void mty_op_mul(stack_t **stack, unsigned int line_number)
 	char data_mode = *get_data_mode(), error = TRUE;
 	stack_t *top0 = NULL, *top1 = NULL;
 	int result = 0;
-	
+
 	if (stack != NULL && (*stack != NULL))
 	{
 		top0 = get_top_element(stack);
